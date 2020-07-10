@@ -1,33 +1,173 @@
-.App {
-  text-align: center;
+img {
+	width: 100%;
+	height: auto;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.app {
+	padding-top: 4rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.mainNav {
+	display: flex;
+	align-items: center;
+	background: white;
+	min-height: 4rem;
+	position: fixed;
+	width: 100%;
+	border-bottom: 1px solid black;
+	top: 0;
+	left: 0;
+	padding: 0 .5rem .5rem;
 }
 
-.App-link {
-  color: #61dafb;
+.chickens {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card {
+	cursor: pointer;
+	padding: 1rem;
+}
+
+.card .img {
+	background-position: center center;
+	background-size: cover;
+	padding: 40%;
+	max-width: 100%;
+}
+
+.filterBar {
+	padding: 1.5rem;
+	position: fixed;
+	background: #212121;
+	top: 0;
+	color: white;
+	transform: translateX(-100%);
+	transition: .3s;
+	height: 100vh;
+	min-width: 30%;
+	max-width: 100%;
+}
+
+.filterBar.active {
+	transform: translateX(0);
+}
+
+.filterBar select {
+	background: white;
+}
+
+.filterBar button {
+	background: white;
+	border: 1px solid black;
+	padding: .5rem;
+	margin-top: 1rem;
+}
+
+.filterIcon {
+	display: inline-block;
+	cursor: pointer;
+	padding: 1rem;
+}
+
+.closeIcon {
+	cursor: pointer;
+}
+
+.selectContainer select {
+	margin-left: .5rem;
+}
+
+.selectContainer,
+.clearBtn {
+	margin-top: 1rem;
+}
+
+.activeFilterBar {
+	display: inline-block;
+	padding: 0 1rem 0 0;
+	margin: 0;
+}
+
+.activeFilter {
+	display: inline-block;
+	list-style-type: none;
+	margin: .5rem 0 0 .5rem;
+	border: 1px solid black;
+	position: relative;
+}
+
+.filterLabel {
+	padding: .4rem;
+	display: inline-block;
+}
+
+.removeFilter {
+	cursor: pointer;
+	display: inline-block;
+	padding: .5rem;
+	border-left: 1px solid black;
+}
+
+.clearLabel {
+	cursor: pointer;
+	background: #ffda51;
+	border: none;
+	padding: .5rem;
+}
+
+.empty {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	z-index: -1;
+}
+
+.chickenModal {
+	background: white;
+	position: fixed;
+  left: 50%;
+  top: 50%;
+	transform: translate(-50%, -100%);
+	opacity: 0;
+	border: 1px solid black;
+	border-radius: 5px;
+	max-height: 90vh;
+	overflow: scroll;
+}
+
+.chickenModal.show {
+	transform: translate(-50%, -50%);
+	opacity: 1;
+	transition: .3s;
+}
+
+.modalDetails {
+	padding: 2rem;
+}
+
+.modalClose {
+	cursor: pointer;
+	float: right;
+	font-size: 1.5rem;
+}
+
+@media (max-width: 1000px) {
+	.chickens {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.chickenModal {
+		height: 100%;
+		width: 100%;
+	}
+}
+
+@media (max-width: 700px) {
+	.chickens {
+		grid-template-columns: 1fr;
+	}
 }
